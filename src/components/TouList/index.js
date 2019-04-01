@@ -7,6 +7,13 @@ class TourList extends Component {
 	state = {
 		tours: tourData,
 	};
+	removeTour = id => {
+		const { tours } = this.state;
+		const sortedTours = tours.filter(tour => tour.id !== id);
+		this.setState({
+			tours: sortedTours,
+		});
+	};
 	render() {
 		console.log(this.state.tours);
 
@@ -15,7 +22,9 @@ class TourList extends Component {
 		return (
 			<section className="tourlist">
 				{tours.map(tour => {
-					return <Tour key={tour.id} tour={tour} />;
+					return (
+						<Tour key={tour.id} tour={tour} removeTour={this.removeTour} />
+					);
 				})}
 			</section>
 		);
