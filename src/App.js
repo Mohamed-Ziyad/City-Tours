@@ -7,8 +7,8 @@ class App extends Component {
 	render() {
 		return (
 			<main>
-				<TourList />
 				<Navbar />
+				<TourList />
 			</main>
 		);
 	}
